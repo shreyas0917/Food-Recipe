@@ -1,4 +1,4 @@
-export const dynamic = 'force-dynamic'; 
+export const dynamic = "force-dynamic";
 import Link from "next/link";
 import classes from "./page.module.css";
 import MealsGrid from "@/components/meals/meals-grid";
@@ -6,8 +6,12 @@ import { getMeals } from "@/lib/meals";
 import { Suspense } from "react";
 
 async function Meals() {
-  const meals = await getMeals();
-  return <MealsGrid meals={meals} />;
+  try {
+    const meals = await getMeals();
+    return <MealsGrid meals={meals} />;
+  } catch (error) {
+    return <p className={classes.error}>Could not fetch meals. Please try again.</p>;
+  }
 }
 
 export default function MealsPage() {
