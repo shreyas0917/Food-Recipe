@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic'; 
 import Link from "next/link";
 import classes from "./page.module.css";
 import MealsGrid from "@/components/meals/meals-grid";
